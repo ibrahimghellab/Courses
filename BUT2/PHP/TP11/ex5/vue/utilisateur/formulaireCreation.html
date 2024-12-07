@@ -1,0 +1,27 @@
+<main>
+    <form method="get" action="routeur.php">
+        <input type="hidden" name="controleur" value="controleurUtilisateur">
+        <input type="hidden" name="action" value="creerUtilisateur">
+        <div>
+            <label for="login">login</label>
+            <input type="text" name="login" placeholder="login...">
+        </div>
+        <div>
+            <label for="mdp">mdp</label>
+            <input type="password" name="mdp" placeholder="mdp...">
+        </div>
+        <div>
+            <label for="nom">nom</label>
+            <input type="text" name="nom" placeholder="nom...">
+        </div>
+        <div>
+            <label for="prenom">prenom</label>
+            <input type="text" name="prenom" placeholder="prenom...">
+        </div>
+        <div>
+            <label for="email">email</label>
+            <input type="email" name="email" placeholder="email...">
+        </div>
+        <button type="submit">Créer</button >
+    </form>
+</main>
