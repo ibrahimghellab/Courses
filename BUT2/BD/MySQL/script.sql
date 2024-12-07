@@ -1,0 +1,99 @@
+CREATE TABLE viticulteur(numViti INT PRIMARY KEY,nom VARCHAR(256),prenom VARCHAR(256),ville VARCHAR(256))
+
+CREATE TABLE vin(numVin INT PRIMARY KEY,cru VARCHAR(256),millesisme INT,region VARCHAR(256),numViti INT, FOREIGN KEY (numViti) REFERENCES ighella.viticulteur(numViti));
+
+2)SHOW COLUMNS FROM viticulteur;
+SHOW COLUMNS FROM vin;
+
+SELECT * FROM viticulteur;
+SELECT * FROM vin;
+
+2)
+DELIMITER //
+CREATE OR REPLACE PROCEDURE leViti(IN numV INT,OUT nomV VARCHAR(256))
+BEGIN
+
+SELECT nom INTO nomV
+FROM viticulteur
+WHERE numViti=numV;
+
+END//
+DELIMITER ;
+
+
+SET @nomV = '';
+CALL leViti(4,@nomV);
+SELECT @nomV;
+
+3)DELIMITER //
+CREATE OR REPLACE FUNCTION reg(numV INT,regi VARCHAR(256)) RETURNS VARCHAR(3)
+BEGIN
+DECLARE isFromTheRegion VARCHAR(3);
+DECLARE nbRes INT;
+
+SELECT COUNT(*) INTO nbRes
+FROM ighella.vin V
+WHERE V.numVin=numV and V.region=regi;
+
+IF nbRes=0 THEN
+	SET isFromTheRegion:='non';
+END IF;
+IF nbRes>=1 THEN 
+	SET isFromTheRegion:='oui';
+END IF;
+RETURN isFromTheRegion;
+END//
+DELIMITER ;
+
+
+SELECT reg(1,'Jura');
+
+
+4)DELIMITER //
+CREATE OR REPLACE PROCEDURE  regionVin(nomVi VARCHAR(256),OUT str VARCHAR(256))
+BEGIN
+DECLARE temp VARCHAR(256);
+DECLARE done INT DEFAULT FALSE;
+DECLARE c1 CURSOR FOR
+SELECT region
+FROM vin
+NATURAL JOIN viticulteur
+where nom=nomVi;
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+OPEN c1;
+loop_start: LOOP
+	
+	FETCH c1 INTO temp;
+    SET str=CONCAT(str,temp);
+	IF done THEN
+      LEAVE loop_start;
+    END IF;
+
+END LOOP;
+CLOSE c1;
+END//
+DELIMITER ;
+
+
+
+
+
+
+CUSROR: 
+DELIMITER //
+CREATE OR REPLACE TRIGGER checkNbVin BEFORE INSERT ON vin 
+FOR EACH ROW 
+BEGIN 
+DECLARE nbVin INT DEFAULT 0;
+SELECT COUNT(*) INTO nbVin
+FROM vin 
+WHERE numViti=NEW.numViti;
+IF nbVin>10 THEN 
+	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Plus de 10 vins';
+END IF;
+END//
+
+
+
+

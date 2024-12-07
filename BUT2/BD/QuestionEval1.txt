@@ -1,0 +1,26 @@
+Écrire une fonction moySalaire sans paramètre qui renvoie le salaire moyen des employés.
+
+Écrire une procédure qui prend en paramètre un numéro de département (deptno) et qui affiche les noms des employés de ce département dont le salaire est inférieur au salaire moyen.
+
+Écrire une fonction nommée propMgr(), retournant un nombre réel et permettant de :
+
+Compter le nombre total de ligne  dans la table EMP et stocker le résultat dans une variable ;
+Compter le nombre d’employés dont la fonction (JOB) est MANAGER dans la table EMP et stocker le résultat dans une deuxième variable ;
+Calculer la proportion (en pourcentage), stocker le résultat dans une troisième variable et afficher le résultat à l’écran.
+Inclure un traitement d’exception permettant à la fonction de renvoyer la valeur NULL si la table EMP est vide (ce qui provoque une division par zéro).
+
+Écrire un trigger qui permet d’afficher les salaires avant et après Après l’augmentation des salaires des employés
+
+Écrire un trigger qui permet de contrôler les salaires : ils doivent être plus grand que le plus petit des salaires et plus petit que le plus grand des salaire
+
+Écrire un trigger qui permet de contrôler le nombre de manager par département. Si le département possèdent 2 managers après insertion, on affiche une alerte. Si le département possèdent 3 managers après insertion, on lève une exception.
+
+
+Une table cumul sert à enregistrer le cumul des augmentations dont ont bénécié les employés d'une entreprise. cumul(Emno#, augmentation)
+
+Ècrire un trigger qui permet de mettre à jour automatiquement la table cumul qui totalise les augmentations de salaire de chaque employé. 
+
+Il faudra créer un autre trigger qui ajoute une ligne dans la table cumul quand un employé est créé.
+
+
+

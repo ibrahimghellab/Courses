@@ -1,0 +1,7 @@
+CREATE OR REPLACE PROCEDURE unTitre(nomActeur ens2004.INDIVIDU.nomIndividu%TYPE,prenomActeur OUT ens2004.INDIVIDU.prenomIndividu%TYPE,titreFilm OUT ens2004.Film.titre%TYPE) AS
+BEGIN
+SELECT titre,prenomIndividu INTO titreFilm,prenomActeur
+FROM ens2004.INDIVIDU I
+NATURAL JOIN ACTEUR
+NATURAL JOIN FILM
+WHERE nomIndividu=nomActeur
