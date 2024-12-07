@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1701878606 source:z:\c++2\tp3\exo3\exo3\piece.cpp
+	"piece.h"
+	<iostream>
+
+1701878606 z:\c++2\tp3\exo3\exo3\piece.h
+	<string>
+
+1702242775 source:z:\c++2\tp3\exo3\exo3\appartement.cpp
+	<vector>
+	<iostream>
+	"piece.h"
+	"appartement.h"
+	<string>
+
+1702242594 z:\c++2\tp3\exo3\exo3\appartement.h
+	<string>
+	<vector>
+	"piece.h"
+	<stdexcept>
+
+1702242641 source:z:\c++2\tp3\exo3\exo3\main.cpp
+	<iostream>
+	<vector>
+	"appartement.h"
+	"piece.h"
+
+1703081913 source:z:\c++2\tp5\main.cpp
+	<iostream>
+	<vector>
+	"appartement.h"
+	"piece.h"
+
+1703079122 z:\c++2\tp5\appartement.h
+	<string>
+	<vector>
+	"piece.h"
+	<stdexcept>
+
+1701878606 z:\c++2\tp5\piece.h
+	<string>
+
+1703080856 source:z:\c++2\tp5\piece.cpp
+	"piece.h"
+	<iostream>
+
+1703081913 source:z:\c++2\tp5\appartement.cpp
+	<vector>
+	<iostream>
+	"piece.h"
+	"appartement.h"
+	<string>
+

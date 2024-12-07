@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1698161801 source:z:\c++\tp6\calcul\main.cpp
+	<iostream>
+	"calcul.h"
+	"menu.h"
+
+1698161843 source:z:\c++\tp6\calcul\calcul.cpp
+	<iostream>
+	"calcul.h"
+
+1697813469 z:\c++\tp6\calcul\calcul.h
+
+1697553509 source:z:\c++\tp6\calcul\menu.cpp
+	<iostream>
+	"menu.h"
+
+1697812502 z:\c++\tp6\calcul\menu.h
+

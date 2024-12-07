@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1699624978 source:z:\c++\tp8\ex02\main.cpp
+	<iostream>
+	<string>
+	<stdexcept>
+

@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1701794433 source:z:\c++2\tp2\partie 1 tp2\main.cpp
+	<iostream>
+	"piece.h"
+	<string>
+	<fstream>
+	<vector>
+
+1701793743 source:z:\c++2\tp2\partie 1 tp2\piece.cpp
+	<iostream>
+	<string>
+	"piece.h"
+	<stdexcept>
+	<fstream>
+
+1701795092 z:\c++2\tp2\partie 1 tp2\piece.h
+	<vector>
+	<string>
+

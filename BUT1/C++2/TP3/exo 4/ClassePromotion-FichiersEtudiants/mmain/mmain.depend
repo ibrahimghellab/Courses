@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1702050036 source:z:\c++2\tp3\exo 4\classepromotion-fichiersetudiants\etudiant.cpp
+	"etudiant.h"
+
+1702391887 z:\c++2\tp3\exo 4\classepromotion-fichiersetudiants\etudiant.h
+	<iostream>
+
+1702392231 source:z:\c++2\tp3\exo 4\classepromotion-fichiersetudiants\main.cpp
+	<iostream>
+	<stdexcept>
+	<vector>
+	<fstream>
+	"etudiant.h"
+	"promotion.h"
+
+1702392087 z:\c++2\tp3\exo 4\classepromotion-fichiersetudiants\promotion.h
+	<iostream>
+	<vector>
+	"etudiant.h"
+
+1702395834 source:z:\c++2\tp3\exo 4\classepromotion-fichiersetudiants\promotion.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	"etudiant.h"
+	"promotion.h"
+

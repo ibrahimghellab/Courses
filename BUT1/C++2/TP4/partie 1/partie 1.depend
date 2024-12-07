@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1702814041 source:z:\c++2\tp4\partie 1\main (7).cpp
+	<cstdlib>
+	<iostream>
+	"rat.h"
+
+1702813961 z:\c++2\tp4\partie 1\rat.h
+	<iostream>
+	<cstdlib>
+
+1702813985 source:z:\c++2\tp4\partie 1\rat.cpp
+	<iostream>
+	<stdexcept>
+	"rat.h"
+

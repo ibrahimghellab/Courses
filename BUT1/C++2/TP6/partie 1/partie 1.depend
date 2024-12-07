@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1704900567 source:z:\c++2\tp6\partie 1\chocolat.cpp
+	<iostream>
+	<string>
+	"chocolat.h"
+
+1704903074 source:z:\c++2\tp6\partie 1\main.cpp
+	<iostream>
+	"chocolat.h"
+	"BoiteChoco.h"
+	<ctime>
+	<stdexcept>
+
+1704817485 z:\c++2\tp6\partie 1\chocolat.h
+	<string>
+
+1704902104 source:z:\c++2\tp6\partie 1\boitechoco.cpp
+	<iostream>
+	<string>
+	"BoiteChoco.h"
+
+1704900567 z:\c++2\tp6\partie 1\boitechoco.h
+	<string>
+	<vector>
+	"chocolat.h"
+

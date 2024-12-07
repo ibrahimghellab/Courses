@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1702021774 source:z:\c++2\tpnotée\exo1\cadeau.cpp
+	"cadeau.h"
+
+1702021774 z:\c++2\tpnotée\exo1\cadeau.h
+	<iostream>
+	<string>
+	<vector>
+
+1702023899 source:z:\c++2\tpnotée\exo1\enfant.cpp
+	"cadeau.h"
+	"enfant.h"
+
+1702022625 z:\c++2\tpnotée\exo1\enfant.h
+
+1702025667 source:z:\c++2\tpnotée\exo1\perenoel.cpp
+	"cadeau.h"
+	"enfant.h"
+	"pereNoel.h"
+
+1702024129 z:\c++2\tpnotée\exo1\perenoel.h
+	"enfant.h"
+	"cadeau.h"
+
+1702026017 source:z:\c++2\tpnotée\exo1\mainnoel.cpp
+	"cadeau.h"
+	"enfant.h"
+	"pereNoel.h"
+	<iostream>
+	<vector>
+

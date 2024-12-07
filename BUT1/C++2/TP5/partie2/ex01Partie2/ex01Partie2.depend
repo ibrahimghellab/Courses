@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1703253432 source:z:\c++2\tp5\partie2\ex01partie2\main (8).cpp
+	<cstdlib>
+	<ctime>
+	<stdexcept>
+	<iostream>
+	"vecteurTrie.h"
+	"outils.h"
+
+1703253435 z:\c++2\tp5\partie2\ex01partie2\vecteurtrie.h
+	<vector>
+	"outils.h"
+
+1703253440 z:\c++2\tp5\partie2\ex01partie2\outils.h
+	<vector>
+
+1703253432 source:z:\c++2\tp5\partie2\ex01partie2\outils.cpp
+	<iostream>
+	"vecteurTrie.h"
+	"outils.h"
+
+1703256049 source:z:\c++2\tp5\partie2\ex01partie2\vecteurtrie.cpp
+	<iostream>
+	"vecteurTrie.h"
+	"outils.h"
+

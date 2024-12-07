@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1698526268 source:z:\c++\tp7\football\football\football.cpp
+	"vecteurs.h"
+	<iostream>
+	<string>
+	<vector>
+
+1698522670 z:\c++\tp7\football\football\vecteurs.h
+	<vector>
+	<iostream>
+	<string>
+
+1698526063 source:z:\c++\tp7\football\football\vecteurs.cpp
+	<iostream>
+	<string>
+	<vector>
+	"vecteurs.h"
+
