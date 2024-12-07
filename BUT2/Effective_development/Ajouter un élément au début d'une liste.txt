@@ -1,0 +1,50 @@
+public class ListeRecursive {
+
+    private Integer element;
+    ListeRecursive reste;
+
+    public ListeRecursive(Integer i,ListeRecursive l){
+        this.element=i;
+        this.reste=l;
+    }
+
+    int tete(){
+         return this.element;
+    }
+
+    ListeRecursive reste(){
+         return this.reste;
+    }
+
+    int compterListe(ListeRecursive li){
+
+        if(li.reste()==null) {
+            return 1;
+        }else{
+            return 1+compterListe(li.reste());
+        }
+
+    }
+
+    ListeRecursive ajouterElement(Integer i){
+       ListeRecursive la=new ListeRecursive(i,this);
+
+
+        return la;
+    }
+
+    public static void main(String[] args) {
+            ListeRecursive li=new ListeRecursive(5,
+                    new ListeRecursive(4,
+                                new ListeRecursive(14,
+                                            new ListeRecursive(20,null)
+                                        )
+                            )
+                    );
+            System.out.println(li.compterListe(li));
+
+            ListeRecursive n=li.ajouterElement(4);
+        System.out.println(n.compterListe(n));
+
+    }
+    }
