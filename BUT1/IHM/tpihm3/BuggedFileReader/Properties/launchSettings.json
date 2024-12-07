@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BuggedFileReader": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

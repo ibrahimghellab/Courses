@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "rAtxZk7yBQs2PkiJJR7OmU785MkQ3R0VUzN5vdlnj3RjtEQlgEZOwSu3+TKnWQF+pbjRgDYNaGlbRBDIORAjSg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ibrag\\OneDrive\\Bureau\\Courses\\BUT1\\IHM\\tpihm5\\AlarmWPF\\AlarmWPF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ibrag\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\ibrag\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\ibrag\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512",
+    "C:\\Users\\ibrag\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\ibrag\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\ibrag\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512",
+    "C:\\Users\\ibrag\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.27\\microsoft.netcore.app.host.win-x64.6.0.27.nupkg.sha512"
+  ],
+  "logs": []
+}
