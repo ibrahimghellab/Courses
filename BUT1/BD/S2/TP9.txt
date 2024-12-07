@@ -1,0 +1,135 @@
+Exercice 1
+
+a)CREATE TABLE CLIENTS (
+    idClient INT PRIMARY KEY,
+    prenomClient VARCHAR2(20),
+    nomClient VARCHAR2(20) NOT NULL,
+    planClient VARCHAR2(50)NOT NULL,
+    CHECK(planClient IN('Essentiel avec publicité','Essentiel', 'Standard', 'Supérieur', 'Premium'))  
+);
+
+CREATE TABLE VISIONNAGE (
+    idClient number(10) REFERENCES CLIENTS,
+    horoDatageDebut TIMESTAMP ,
+    idFilm number(10),
+    numVersion number(1),
+    minuteStop number(10),
+    horoDatageFin TIMESTAMP,
+    PRIMARY KEY(idClient,horoDatageDebut),
+    --FOREIGN KEY(idFilm,numVersion) REFERENCES bdfilm.VERSION,
+    CHECK (horoDatageDebut<horoDatageFin)
+    );
+    
+
+    INSERT INTO CLIENTS VALUES(882213,'William', 'Blake',  'Essentiel avec publicité');
+    INSERT INTO CLIENTS VALUES(114455,'Helena', 'Lovett', 'Supérieur');
+    INSERT INTO CLIENTS VALUES(446672, 'Jeanne', 'Moreau', 'Premium') ;
+    
+    
+    INSERT INTO VISIONNAGE VALUES ( 882213, '08-02-2024 00:06:00' ,792307, 1 ,31,'08-02-2024 00:41:00');
+    INSERT INTO VISIONNAGE VALUES ( 882213 ,'08-02-2024 20:41:00', 792307, 1 ,NULL,'08-02-2024 23:49:00');
+    INSERT INTO VISIONNAGE VALUES (114455, '14-02-2024 22:23:00' ,398818, 4 ,NULL,'15-02-2024 00:34:00');
+    INSERT INTO VISIONNAGE VALUES (114455,'15-02-2024 19:16:00', 398818, 2 ,86 ,'15-02-2024 19:32:00');
+    INSERT INTO VISIONNAGE VALUES ( 114455, SYSDATE-1 , 7345, 3, 120 ,SYSDATE - 1 +2/24);
+    INSERT INTO VISIONNAGE VALUES ( 114455, SYSDATE, 7345, 3, NULL, NULL);
+    INSERT INTO VISIONNAGE VALUES ( 446672,SYSDATE,496243, 5,NULL,NULL);
+
+
+b)CREATE TABLE TRACE (
+    numLigne NUMBER,
+    message VARCHAR2(250)
+    );
+
+c)CREATE OR REPLACE FUNCTION nbLignes RETURN NUMBER AS
+nb NUMBER;
+BEGIN
+SELECT COUNT(*) INTO nb FROM Trace;
+RETURN nb;
+END nbLignes;
+/ 
+
+d)CREATE OR REPLACE TRIGGER Trigger1
+AFTER INSERT OR UPDATE OF horoDatageFin
+ON Visionnage FOR EACH ROW
+BEGIN
+ IF INSERTING THEN INSERT INTO Trace VALUES
+ (nbLignes+1, 'Trigger 1 (AFTER/FOR EACH ROW) : Nouveau visionnage pour le client '||:NEW.idClient);
+ END IF;
+ IF UPDATING THEN INSERT INTO Trace VALUES
+ (nbLignes+1, 'Trigger 1 (AFTER/FOR EACH ROW) : Mise à jour de fin de visionnage le pour le client '||
+ :OLD.idClient);
+ END IF;
+END trigger1;
+/     
+
+
+CREATE OR REPLACE TRIGGER Trigger2
+AFTER INSERT OR UPDATE OF horoDatageFin
+ON Visionnage
+BEGIN
+ INSERT INTO Trace VALUES (nbLignes+1, 'Trigger 2 (AFTER) : Modification dans Visionnage');
+END trigger2;
+/ 
+
+
+CREATE OR REPLACE TRIGGER Trigger3
+BEFORE INSERT OR UPDATE OF horoDatageFin
+ON Visionnage FOR EACH ROW
+BEGIN
+ IF INSERTING THEN INSERT INTO Trace VALUES
+ (nbLignes+1, 'Trigger 3 (BEFORE/FOR EACH ROW) : Nouveau visionnage pour le client '||:NEW.idClient);
+ END IF;
+ IF UPDATING THEN INSERT INTO Trace VALUES
+ (nbLignes+1, 'Trigger 3 (BEFORE/FOR EACH ROW) : Mise à jour de fin de visionnage le pour le client '||
+ :OLD.idClient);
+ END IF;
+END trigger3;
+/ 
+
+CREATE OR REPLACE TRIGGER Trigger4
+BEFORE INSERT OR UPDATE OF horoDatageFin
+ON Visionnage
+BEGIN
+ INSERT INTO Trace VALUES (nbLignes+1, 'Trigger 4 (BEFORE) : Modification dans Visionnage');
+END trigger4;
+/ 
+
+
+
+e)L'insertion de donnée met à jour la table Visionnage et la table Trace qui est due à l'activation des triggers de par la modification de horoDatage
+
+f)La mise à jour de la table fait quand méme appel au trigger de par le fait que horodatage est mis à NULL lorsque le idClient = 882213
+
+g)La mise à jour de la table fait quand méme appel au trigger de par le fait que horodatage est modifié 
+
+h)le trigger 4 est appelé une fois lorsqu'il y a une modification qui est toujours suivi par le trigger 3 et 1 qui est répété le nombre de fois qu'il y a de lignes modifiées puis à la fin le trigger 2
+
+Exercice 2
+
+CREATE OR REPLACE TRIGGER verifStop
+BEFORE DELETE OR UPDATE OR INSERT ON Visionnage
+FOR EACH ROW
+BEGIN
+IF :NEW.horoDatageFin IS NULL AND :NEW.minuteStop IS NOT NULL THEN
+RAISE_APPLICATION_ERROR(-20001, 'minuteStop est renseigné et horoDatageFin ne l est pas');
+END IF;
+END;
+/
+
+
+Exercice 3
+
+Ne march pas 
+
+INSERT INTO VISIONNAGE VALUES ( 88220, '08-02-2024 00:06:00' ,792307, 1 ,31,NULL);
+
+CREATE OR REPLACE TRIGGER verifVisio 
+BEFORE INSERT OR UPDATE OR DELETE ON VISIONNAGE
+FOR EACH ROW 
+BEGIN
+IF(:NEW.minuteStop IS NULL AND :NEW.horoDatageFin IS NULL)  AND :OLD.minuteStop IS NULL AND :OLD.horoDatageFin IS NULL THEN
+RAISE_APPLICATION_ERROR(-20001, 'il y a deja un visionnage en cours');
+END IF;
+END;
+/
+

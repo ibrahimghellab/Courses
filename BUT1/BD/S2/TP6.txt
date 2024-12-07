@@ -1,0 +1,50 @@
+1)DECLARE 
+nbComedies NUMBER(8); 
+nbFilms NUMBER(8);
+
+BEGIN
+nbComedies:=8;
+
+
+SELECT COUNT(*) INTO nbFilms 
+FROM bdfilm.GENREFILM GF
+INNER JOIN bdfilm.GENRE G1 ON GF.idGenre=G1.idGenre
+WHERE G1.nomGenre='Comédie';
+DBMS_OUTPUT.PUT_LINE('Il y en a ' || nbFilms || ' qui sont  des comédies ');
+SELECT COUNT(*) INTO nbComedies
+FROM bdfilm.GENREFILM GF1
+INNER JOIN bdfilm.GENREFILM GF2 ON GF1.idFilm=GF2.idFilm 
+INNER JOIN bdfilm.GENRE G2 ON GF2.idGenre=G2.idGenre
+INNER JOIN bdfilm.GENRE G1 ON GF1.idGenre=G1.idGenre
+WHERE G1.nomGenre='Comédie'
+AND G2.nomGenre='Action' ;
+DBMS_OUTPUT.PUT_LINE('Il y en a ' || nbcomedies || ' qui sont  à la fois des des comédies et des films d actions');
+END;
+
+
+2)DECLARE 
+tf VARCHAR2(100);
+nomrea VARCHAR2(100);
+prenomrea VARCHAR2(100);
+tfv VARCHAR2(100);
+idrea VARCHAR2(100);
+BEGIN 
+SELECT titre,nomPersonne,prenomPersonne,idPersonne INTO tf,nomrea,prenomrea,idrea 
+FROM bdfilm.FILM F
+INNER JOIN bdfilm.EQUIPEFILM EF ON F.idFilm=EF.idFilm
+INNER JOIN bdfilm.PERSONNE P ON EF.idPersonne=P.idPersonne
+WHERE F.idFilm=599 AND job='Director';
+DBMS_OUTPUT.PUT_LINE(tf ||' '|| nomrea ||' '|| prenomrea);
+
+SELECT titre INTO tvf
+FROM bdfilm.FILM
+NATURAL JOIN bdfilm.EQUIPEFILM EF
+WHERE idPersonne = idrea AND job='Director'
+AND datesortie = (
+SELECT MIN(dateSortie)
+FROM bdFilm.FILM
+NATURAL JOIN bdfilm.EQUIPEFILM
+WHERE JOB='Director' AND idPersonne=idrea);
+
+END;
+

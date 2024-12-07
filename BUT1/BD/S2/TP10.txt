@@ -1,0 +1,63 @@
+Exercice 1
+
+
+create or replace PACKAGE statistics AS
+FUNCTION nbHorsFrance RETURN NUMBER;
+PROCEDURE bassesRes;
+END statistics;
+
+
+create or replace PACKAGE BODY statistics AS
+    FUNCTION nbHorsFrance RETURN NUMBER AS 
+        nbFilmPasFr NUMBER(5);
+        BEGIN
+            SELECT DISTINCT COUNT(*) INTO nbFilmPasFr
+            FROM bdfilm.FILM F
+
+            WHERE F.idFilm NOT IN (
+                                    SELECT idFilm
+                                    FROM bdfilm.SORTIE S
+                                    NATURAL JOIN bdfilm.PAYS 
+                                    WHERE nomPays='France');
+            RETURN nbFilmPasFr;
+        END nbHorsFrance;
+
+    PROCEDURE bassesRes AS
+    nbFilmsTotal NUMBER(7);
+    nbFilmbasseRes NUMBER(7);
+    BEGIN 
+        SELECT COUNT(*) INTO nbFilmsTotal  
+        FROM bdfilm.FILM;
+        
+        SELECT COUNT(*) INTO nbFilmbasseRes
+        FROM bdfilm.FILM F
+        WHERE idFilm NOT IN (
+        SELECT idFilm
+        FROM bdfilm.FILM
+        NATURAL JOIN bdfilm.VERSION
+        WHERE resolution='4K' OR resolution='8K');
+        DBMS_OUTPUT.PUT_LINE('Le pourcentages de films qui n ont pas de résolutions 4k ou 8k est de ' || ((nbFilmbasseRes/ nbFilmsTotal)*100)||'%');
+    END bassesRes;
+
+END statistics;
+
+
+Exercice 2
+
+
+SET SERVEROUTPUT ON;
+
+EXECUTE DBMS_OUTPUT.PUT_LINE(statistics.nbHorsFrance);
+EXECUTE statistics.bassesRes;
+
+
+create or replace PACKAGE famille AS
+FUNCTION nbPersonne(nom VARCHAR2) RETURN NUMBER;
+PROCEDURE nomsPrenomsendfonctionduNom(nom VARCHAR2);
+FUNCTION nbFilmRealiseNom(nom VARCHAR2)RETURN NUMBER;
+FUNCTION nbFilmJoueNom(nom VARCHAR2) RETURN NUMBER;
+END famille;
+
+create or replace PACKAGE BODY famille AS
+
+END famille;

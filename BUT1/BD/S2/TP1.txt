@@ -1,0 +1,57 @@
+Exercice 1
+
+a)Le prix minimum par semaine du chalet numéro 2 en pleine saison.
+
+b)Le numéro et le nom des camping qui comporte le chalet 2 et dont le prix par semaine est le plus bas en pleine saison.
+
+c)Le numéro et le nom des camping qui ont tout les type de chalet qui comporte 6 personnes.
+
+Exercice 2
+
+a) 	SELECT C.NomCamping,A.nomActivite
+	FROM CAMPING C
+	INNER JOIN ACTICAMPING AC ON C.numCamping=AC.numCamping
+	INNER JOIN ACTIVITE A ON AC.numActivite=A.numActivite
+	WHERE AC.PrixActivite<3;
+
+b)	SELECT MAX(prixActivite)
+	FROM ACTICAMPING AC
+	INNER JOIN CAMPING C ON AC.numCamping=C.numCamping
+	WHERE nomCamping='La Forêt';
+
+c)	SELECT DISTINCT C.numCamping,nomCamping
+	FROM CAMPING C
+	INNER JOIN ACTICAMPING AC ON C.numCamping=AC.numCamping
+	WHERE prixActivite>(SELECT MAX(prixActivite)
+	FROM ACTICAMPING AC
+	INNER JOIN CAMPING C ON AC.numCamping=C.numCamping
+	WHERE nomCamping='La Forêt');
+
+d)	SELECT nomCamping
+	FROM CAMPING C
+	INNER JOIN ACTICAMPING AC ON C.numCamping=AC.numCamping
+	INNER JOIN ACTIVITE A ON AC.numActivite=A.numActivite
+	GROUP BY nomCamping
+	HAVING COUNT(AC.NumActivite)>( SELECT COUNT(*)
+	FROM CAMPING C
+	INNER JOIN ACTICAMPING AC ON C.numCamping=AC.numCamping
+	WHERE nomCamping='Aqua Viva');
+
+e)	SELECT DISTINCT nomActivite
+	FROM ACTIVITE A 
+	INNER JOIN ACTICAMPING AC ON A.numActivite=AC.numActivite
+	INNER JOIN CAMPING C ON AC.numCamping=C.numCamping
+	WHERE nbEtoiles=3;
+
+f)	SELECT nomActivite
+	FROM ACTIVITE A 
+	INNER JOIN ACTICAMPING AC ON A.numActivite=AC.numActivite
+	INNER JOIN CAMPING C ON AC.numCamping=C.numCamping
+	WHERE nbEtoiles=3 
+	GROUP BY nomActivite
+	HAVING COUNT(*)= (SELECT COUNT(*)
+	FROM CAMPING 
+	WHERE Nbetoiles=3);
+
+g)
+

@@ -1,0 +1,74 @@
+Exo 1
+
+SET SERVEROUTPUT ON;
+
+a) 
+
+CREATE OR REPLACE FUNCTION nbFilms (idPersonn NUMBER) RETURN NUMBER IS
+nbRFilm NUMBER(5);
+BEGIN
+SELECT COUNT(*) INTO nbRFilm
+FROM bdfilm.ROLEFILM RF
+WHERE RF.idPersonne=idPersonn;
+
+RETURN nbRFilm;
+
+
+END nbFilms;
+/
+
+EXECUTE DBMS_OUTPUT.PUT_LINE(nbFilms(880));
+
+b)
+
+CREATE OR REPLACE PROCEDURE Afficher (idP NUMBER) IS
+    GENRE VARCHAR2(50);
+    NBFilm NUMBER(8);
+
+    CURSOR cur1 IS
+        SELECT nomGenre, COUNT(*) AS NB
+        FROM bdfilm.GENRE G
+        INNER JOIN bdfilm.GENREFILM GF ON G.idGenre = GF.idGenre
+        INNER JOIN bdfilm.ROLEFILM RF ON GF.idFilm = RF.idFilm 
+        WHERE RF.idPersonne = idP
+        GROUP BY G.nomGenre;
+
+BEGIN 
+    FOR rec IN cur1 LOOP
+        GENRE := rec.nomGenre;
+        NBFilm := rec.NB;
+        DBMS_OUTPUT.PUT_LINE('Genre: ' || GENRE || ', Nombre de films: ' || NBFilm);
+    END LOOP;
+END Afficher;
+/
+EXECUTE Afficher(880);
+
+c)
+
+CREATE OR REPLACE  PROCEDURE AfficherNom(nomA VARCHAR) IS 
+    
+    idPe NUMBER;
+    CURSOR cur1 IS
+        SELECT DISTINCT prenomPersonne, nomPersonne
+        FROM bdfilm.PERSONNE P
+        INNER JOIN bdfilm.ROLEFILM RF ON P.idPersonne=RF.idPersonne
+        WHERE P.nomPersonne=nomA;
+    i NUMBER;
+        
+BEGIN
+    
+    FOR i IN cur1 LOOP 
+        IF i.nomPersonne=nomA THEN
+            SELECT idPersonne INTO idPe
+            FROM bdfilm.PERSONNE
+            WHERE nomPersonne=i.nomPersonne AND prenomPersonne=i.prenomPersonne;
+            DBMS_OUTPUT.PUT_LINE('Nom: ' || i.nomPersonne || ', Prénom: ' || i.prenomPersonne);
+            Afficher(idPe);
+             DBMS_OUTPUT.PUT_LINE(' ');
+        END IF ;
+    END LOOP;
+END;
+/
+
+EXECUTE affichernom('Affleck');
+        

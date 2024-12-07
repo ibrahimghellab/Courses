@@ -1,0 +1,61 @@
+Exo 1
+
+
+a)
+
+CREATE TABLE typeChalet (
+numTypeChalet INT PRIMARY KEY,
+nomTypeChalet VARCHAR2(20) UNIQUE,
+Capacite INT,
+Descr VARCHAR2(100)
+);
+
+CREATE TABLE baseLoisirs (
+numBaseL INT PRIMARY KEY,
+nomBaseL VARCHAR2(30),
+AdrBaseL VARCHAR(50),
+CPBaseL INT,
+VilleBaseL VARCHAR2(20)
+);
+
+CREATE TABLE CAMPING (
+numCamping INT PRIMARY KEY,
+nomCamping VARCHAR2(20),
+AdrCamping VARCHAR(50),
+CPcamping INT,
+VilleCamping VARCHAR2(50),
+TelCamping INT,
+BaseLoisirs INT,
+DateOuv DATE,
+DateFerm DATE,
+CONSTRAINT verifDates CHECK(DateOuv <= DateFerm),
+NbEtoiles INT,
+CONSTRAINT NbEtoiles04 CHECK (NbEtoiles>=1 AND NbEtoiles<=4),
+QualiteFrance VARCHAR2(3) DEFAULT 'Non',
+CONSTRAINT QualiFranceVerif CHECK (QualiteFrance IN ('Oui','Non')),
+CONSTRAINT CAMPINGCIR FOREIGN KEY (BaseLoisirs) REFERENCES BaseLoisirs
+);
+
+CREATE TABLE COMPOCAMPING (
+numCamping,numTypeChalet INT PRIMARY KEY,
+CONSTRAINT COMPOCAMPINGCIR1 FOREIGN KEY (numCamping) REFERENCES CAMPING,
+CONSTRAINT COMPOCAMPINGCIR2 FOREIGN KEY (numTypeChalet) REFERENCES TYPECHALET,
+NbreChalet INT,
+CONSTRAINT NbChaletPos CHECK (NbreChalet>0)
+);
+
+
+b)DROP typeChalet;
+  DROP baseLoisirs;
+  DROP camping;
+  DROP compoCamping;
+
+Exo 2
+
+a) INSERT INTO typeChalet SELECT * FROM ffioren.typeChalet;
+
+INSERT INTO baseLoisirs SELECT * FROM ffioren.baseLoisirs;
+
+INSERT INTO Camping SELECT * FROM ffioren.camping;
+
+INSERT INTO CompoCamping SELECT * FROM fiorren.CompoCamping;

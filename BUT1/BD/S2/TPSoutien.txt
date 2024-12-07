@@ -1,0 +1,59 @@
+SET SERVEROUTPUT ON;
+
+
+--fonction qui permet de calculer le nombre d'Acteurs qu'il y a dans un film
+CREATE OR REPLACE FUNCTION nbActeurdanslefilm(NBFILM bdfilm.FILM.idFilm%TYPE)RETURN NUMBER IS 
+
+nbActeur NUMBER;
+
+BEGIN
+
+SELECT COUNT(*) INTO nbActeur
+FROM bdfilm.ROLEFILM 
+WHERE idFilm=NBFILM;
+
+
+
+RETURN nbActeur;
+
+END nbActeurdanslefilm;
+/
+
+
+EXECUTE DBMS_OUTPUT.PUT_LINE ('Il y a '|| nbActeurdanslefilm(633) || ' acteurs dans ce film');
+
+/
+
+
+--Procédure qui affiche le numéro, nom et prénom des acteurs qui joue dans un film donné 
+--Exception si il n'y a pas d'Acteurs
+CREATE OR REPLACE PROCEDURE informationsActeursFilm(NBFILM bdfilm.film.idFilm%TYPE) IS
+
+CURSOR informations IS 
+    SELECT P.idPersonne,nomPersonne,prenomPersonne
+    FROM bdfilm.PERSONNE P 
+    INNER JOIN bdfilm.ROLEFILM RF ON P.idPersonne=RF.idPersonne
+    WHERE idFilm=NBFILM;
+    
+pasdActeur EXCEPTION;
+acteur NUMBER;
+    
+BEGIN 
+    
+    IF nbActeurdanslefilm(NBFILM)=0 THEN RAISE pasdActeur;END IF;
+    FOR chaqueligne IN informations LOOP 
+        DBMS_OUTPUT.PUT_LINE(chaqueligne.idPersonne || ' ' ||chaqueligne.nomPersonne || ' ' ||chaqueligne.prenomPersonne);
+        END LOOP;
+    EXCEPTION
+    WHEN pasdActeur THEN
+        DBMS_OUTPUT.PUT_LINE('Il ny a pas de acteurs dans ce film');
+ END informationsActeursFilm;
+/
+ 
+ EXECUTE informationsActeursFilm(399106);
+ 
+ /
+
+ 
+ 
+ 

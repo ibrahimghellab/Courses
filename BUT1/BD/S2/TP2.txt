@@ -1,0 +1,44 @@
+
+a)SELECT DISTINCT nomVoyage
+FROM VOYAGE V
+INNER JOIN ETAPE E ON V.numVoyage=E.numVoyage
+INNER JOIN VILLE VI ON E.numVille=VI.numVille
+INNER JOIN PAYS P ON VI.numPays=P.numPays
+WHERE nomPays='France';
+
+b)SELECT DISTINCT nomVoyage
+FROM VOYAGE V
+WHERE numVoyage NOT IN (
+SELECT V.numVoyage
+FROM VOYAGE V
+INNER JOIN ETAPE E ON V.numVoyage=E.numVoyage
+INNER JOIN VILLE VI ON E.numVille=VI.numVille
+INNER JOIN PAYS P ON VI.numPays=P.numPays
+WHERE nomPays!='France');
+
+c)SELECT DISTINCT nomVoyage
+FROM VOYAGE V
+WHERE numVoyage NOT IN (
+SELECT V.numVoyage
+FROM VOYAGE V
+INNER JOIN ETAPE E ON V.numVoyage=E.numVoyage
+INNER JOIN VILLE VI ON E.numVille=VI.numVille
+INNER JOIN PAYS P ON VI.numPays=P.numPays
+WHERE nomPays='France');
+
+d)SELECT DISTINCT nomVoyage
+FROM VOYAGE V
+INNER JOIN ETAPE E ON V.numVoyage=E.numVoyage
+INNER JOIN VILLE VI ON E.numVille=VI.numVille
+INNER JOIN PAYS P ON VI.numPays=P.numPays
+WHERE P1.nomPays!='France';
+
+
+e)SELECT DISTINCT nomVoyage,nomVille
+FROM VOYAGE V 
+INNER JOIN ETAPE E ON V.numVoyage=E.numVoyage
+INNER JOIN VILLE VI ON E.numVille=VI.numVille
+WHERE duree=(SELECT max(Duree)
+FROM etape 
+WHERE numVoyage=v.numVoyage);
+

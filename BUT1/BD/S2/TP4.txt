@@ -1,0 +1,19 @@
+Exo 1
+a)
+SELECT DISTINCT F.idFilm,titre
+FROM bdfilm.film F
+WHERE F.idFilm NOT IN (
+SELECT S.idFilm
+FROM bdfilm.SORTIE S
+INNER JOIN bdfilm.PAYS P ON S.codePays=P.codePays
+WHERE nomPays='France'
+);
+b)
+SELECT nomPersonne,prenomPersonne
+FROM bdfilm.PERSONNE P
+INNER JOIN bdfilm.EQUIPEFILM EF ON P.idPersonne=EF.idPersonne
+INNER JOIN bdfilm.ROLEFILM RF ON P.idPersonne=RF.idPersonne
+WHERE nomPersonne NOT IN(
+SELECT nomPersonne
+FROM 
+
