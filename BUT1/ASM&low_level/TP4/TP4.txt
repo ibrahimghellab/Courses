@@ -1,0 +1,140 @@
+Exo 1
+
+1)Quelle est le lien entre le registre RAX et le registre EAX ?
+
+EAX est les 32 bits de poids faibles de RAX
+
+2)Quelle est le lien entre le registre EAX et le registre AX ?
+
+AX est les 16 bits de poids faibles de de EAX
+
+3)Quelle est le lien entre le registre AX et les registres AH et AL ?
+
+AH est les 8 bits de poids fort de AX
+AL est les 8 bits de poids faibles de AX
+
+4)Si le registre 64 bits RAX contient (ABCDEF0123456789)16, quel est le contenu en hexa des registres
+suivants : 
+o AL =  89? 
+o AH = 67 ? 
+o AX = 6789 ? 
+o EAX = 23456789? 
+
+5)Sachant qu’une case mémoire peut contenir 8 bits, quelle est en octets, la taille de l'espace mémoire
+qu'on peut adresser avec un registre 16 bits ? 
+
+1 case mémoire = 8 bits = 1 octet
+sur un registre 16 bits on peut construire 2^16 adresses vers une case mémoire
+=> on peut adresser un espace mémoire de 2^16 octets = 65536 octets = 2^10x2^6=64 kibioctets
+
+6)Même question pour un registre 20 bits ?
+
+sur un registre de 20 bits on peut construire 2^20 adresses vers une case mémoire soit 1 mébioctet
+
+7)Même question pour un registre 32 bits ?
+
+sur un registre de 32 bits on peut construire 2^32 adresses vers une case mémoire soit 4 gibioctets
+
+8)Même question pour un registre 64 bits ?
+
+sur un registre de 64 bits on peut construire 2^64 adresses vers une case mémoire soit 16 exbioctets
+
+9)Le registre RSP (Stack Pointer) sert à pointer vers la prochaine case libre de la pile. Quelle est le rôle
+de la pile ? 
+
+RSP -- pointer       -----> indique la prochaine case libre de la pile, dont le role est de gérer tout ce qui concerne les variables temporaires : 
+ |																		->variables locales des fonctions,	
+stack																		->adresses de retour lors d'appels de fonctions
+ | 																		->passage de paramêtres aux fonctions
+pile != tas=heap 
+
+
+10)Que contient le registre des indicateurs EFL ? Quand est-il modifié ?
+
+Le registre EFL garde les infos sur le dernier calcul effectué ( =0?, negatif ?, retenue ?)
+---> Modifié à chaque calcul de l'UAL 
+
+
+
+EXO 2
+
+
+
+11)Expliquez le rôle de la ligne extern "C" int somme(int a, int b);
+
+indique au comlpilateur où aller chercher la fonction somme 
+
+12)Que définissent les lignes .CODE et END ? 
+
+début et fin du programme assembleur 
+
+13)Que définissent les lignes somme PROC et somme ENDP ?
+
+début et fin de la partie de code de la fonction somme
+
+14)Quelle est la taille en bits des paramètres a et b et quels registres sont utilisés pour transmettre leurs
+valeurs à la fonction somme ? 
+
+a et b sur 32 bits 
+ECX a stocké a, EDX a stocké b           
+
+15)Quelle est la taille en bits de la valeur retournée par la fonction somme et quel registre est utilisé pour
+cela ? 
+
+le registre utilisé pour retourner la somme est EAX (32 bits)
+
+16)Que fait l’instruction MOV EAX,ECX ?
+
+MOV EAX,ECX revient à prendre la valeur dans ECX et la stocké dans EAX 
+
+17)Que fait l’instruction ADD EAX,EDX ? 
+
+ ADD EAX,EDX ajoute EDX à EAX en faisant la somme
+
+
+
+
+
+EXO 3
+
+18) Quel est le rôle de la ligne .DATA ? 
+
+.DATA délimite sur quels endroites définit on les données
+
+19)
+
+
+VARIABLE    ADRESSE DE DEBUT    NOMBRE D'OCTETS    CONTENU DES OCTETS EN HEXA     EXPLICATION
+
+var1        00007FF75E93E080		1			05		   Codage de 5 sur 8 bits 
+var2	    00007FF75E93E081		2			08 00		   Codage de 8 sur 16 bits
+var3	    00007FF75E93E083	        4                       07 00 00 00	   Codage de 7 sur 32 bits
+var4        00007FF75E93E087            8              09 00 00 00 00 00 00 00     Codage de 9 sur 64 bits
+var5	    00007FF75E93E08F           10	  03 00 00 00 00 00 00 00 00 00    Codage de 3 sur 80 bits
+var6        00007FF75E93E099 	       	4                      00 00 c8 40         Codage de 6.25 sur 32 bits
+var7        00007FF75E93E09D		8         00 00 00 00 00 00 00 04 40	   Codage de 2.5 sur 64 bits
+var8        00007FF75E93E0A5            1                       02                 Codage de 2 sur 8 bits
+var9        00007FF75E93E0A6            1                       32                 Codage de 2 en ASCII soit 50 sur 8 bits
+var10       00007FF75E93E0A7            4                      fe 80 80 0c         Codage de -2,128,-128 et 12 sur 32 bits              
+var11       00007FF75E93E0AB            4                      61 62 63 00         Codage de 'abc',0 sur 32 bits
+va12        00007FF75E93E0AF            1                     00                   Variable non initialisé sur 8 bits
+
+
+20)Que remarquez-vous en général pour toutes les variables ?
+
+Les octets de poids faible sont stockées en premier en mémoire (little endian)
+
+21)Que remarquez-vous en particulier pour la variable var10 ? 
+
+128 et -128 sont codées de la même manière
+
+22)Quel autre type peut-on utiliser à la place respectivement de BYTE, WORD, DWORD, QWORD, TBYTE ?
+
+BYTE = DB
+WORD = DW
+DWORD = DD
+QWORD = DQ
+TBYTE = DT
+
+23) Que fait ce programme ? 
+
