@@ -1,0 +1,56 @@
+@charset "utf-8";
+* { margin : 0; padding : 0; }
+td {
+    padding: 20px;
+  
+}
+th {
+    padding: 20px;
+  
+}
+th {
+		background  : black;
+		color       : white;
+		font-weight : bold;
+}
+
+ .tableau {
+	background:yellow;
+	color:green;
+	font-weight:bold;
+}
+/* Style pour les lignes paires du corps du tableau */
+tr:nth-child(even):not(:last-child) {
+  background: lightblue;
+}
+
+/* Style pour les lignes impaires du corps du tableau */
+tr:nth-child(odd):not(:last-child) {
+  background: lightgray;
+}
+
+td:first-child{
+	font-weight:bold;
+}
+.premierbloc{
+	background-color:red;
+}
+.rose{
+	background-color:purple;
+}
+
+
+.blue{
+	background-color:blue;
+}
+.green{
+	background-color:green;
+}
+caption{
+	caption-side:bottom;
+	font-family:cursive;
+	font-size:30px;
+}
+
+
+table { width:20px; margin:0 auto; }

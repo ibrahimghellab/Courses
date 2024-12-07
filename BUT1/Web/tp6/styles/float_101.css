@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+.titre {
+	margin-left : 5px; 
+}
+
+/* 2.1.b.ii */
+main section div {
+	margin-left : 1rem;
+}
+/* 2.1.b.ii */
+main section div img {
+	float : left;
+	border : 3px solid GoldenRod;
+}
+/* 2.1.b.iii */
+main section div h1 {
+	font-size       : 3rem;
+	text-decoration : underline;
+}
+
+/* 2.1.b.iv */
+main section h1{
+	border-bottom : 2px solid GoldenRod;
+	/* 2.1.c.v */
+	overflow : hidden; /* on voit son utilité en 2.1.d avec des taille faibles */
+}
+
+/* 2.1.c.ii */ 
+main article img {
+	float : right;
+	border : 3px solid DarkGoldenRod;
+}
+
+main article h2 {
+	/* 2.1.c.iii */ 
+	font-size       : 1.8rem;
+	text-decoration : underline;
+	/* 2.1.c.iv */ 
+	border-bottom : 2px solid DarkGoldenRod;
+	/* 2.1.c.v */
+	overflow : hidden;                
+}
+
+/* 2.1.d */ 
+/* main img {  */
+	/* height : 100px; */
+/* } */
+
+/* 2.1.e */ 
+/* aside{ */
+	/* width : 40%; */
+	/* float : right; */
+/* } */
+

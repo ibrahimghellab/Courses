@@ -1,0 +1,46 @@
+@charset "utf-8";
+* { margin : 0; padding : 0; }
+
+
+fieldset label{
+    font-weight: normal;
+	margin-left:400px;
+	
+}
+
+legend {
+font-weight:bold;
+background-color:#5D6D7E ;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+	margin-left:20px;
+}
+
+input:nth-last-child(-n+2) {
+    font-weight: bold;
+	border-color:black;
+	border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+border-bottom-right-radius: 2px;
+}
+
+
+
+form {
+    border-top-left-radius: 5px;
+    border-top-right-radius:5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+	background-color:gray;
+	
+}
+
+fieldset {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

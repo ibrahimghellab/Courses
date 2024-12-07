@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang='fr'>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="./styles/formulaire.css" />
+		<title>Formulaire html</title>
+	</head>
+	<body>
+		<header>
+			<h1>Premier document html</h1>
+			<h2>Structure standart d'une page html</h2>
+			<p>
+				Je m'appelle Ibrahim Ghellab et je suis en 1L1
+			</p>
+		</header>
+		
+		
+		
+		<main>
+         <section>
+            <h2>1.Premier titre</h2>
+            <article>
+
+               <h3>1.1Sous titre</h3>
+
+			   
+			   		
+			<form action="https://webdev.iut-orsay.fr/r102/tests/formulaire/test_formulaire.php" method="post"/>
+			
+			
+			
+			<label for="u_name">Saisissez votre nom :</label>
+			<input type="text" 	id="u_name" name="nom_utilisateur" placeholder="Nom"/>
+			
+			<label for="p_utilisateur">Saisissez votre prénom :</label>
+			<input type="text" id="p_utilisateur" name="prénom_utilisateur" placeholder="Prénom"/>
+			
+			<label for="mdp_utilisateur">Saissisez votre mot de passe</label>
+			<input type="password" id="mdp_utilisateur" name="mot_de_passe_utilisateur" placeholder="***********"/>
+			
+            <label for="file_name">Nom de sauvegarde au format spécifié :</label>
+            <input type="text" id="file_name" name="nom_sauvegarde" pattern="[A-Z]{2}\d{3}[a-z]{2}\d{3}\.(pdf|csv)" required title="Le nom de sauvegarde doit correspondre au format spécifié (ex. AB123xy456.pdf)">
+			
+			<label for="document_type">Type de document :</label>
+            <input list="types" id="document_type" name="type_document" required>
+            <datalist id="types">
+                <option value="comptable payé">
+                <option value="comptable à payer">
+                <option value="technique informatique">
+                <option value="technique mécanique">
+                <option value="marketing mensonger">
+                <option value="marketing nocif">
+                <option value="syndical">
+                <option value="top secret">
+                <option value="top inutile">
+            </datalist>
+			
+			<label for="date_document">Dernière date de mise à jour du document :</label>
+			<input type="date" id="date_document" name="derniere_date_de_mise_à_jour_du_document" />
+			
+			<label for="version_document">Numéro de la version du document</label>
+			<input type="number" id="version_document" name="numéro_de_version_du_document" min="1" max="20" required/>
+			
+			<label for="document">Faites joindre votre document ici : </label>
+			<input type="file" id="document" name="document_téléchargé" accept=".pdf,.csv"/>
+			
+			<input type="checkbox" id="verification" name="vérification_du_document"/>
+			<label for="verification">Confirmation</label>
+			
+			<fieldset>
+			<legend>Urgence de l'envoi</legend>
+			<label  for="top_priorité">top priorité</label>
+			<input type="radio" id="top_priorité" name="priorité_importante">
+			
+			<label  for="ca_va">pas trop important</label>
+			<input type="radio" id="ca_va" name="priorité_moindre">
+	
+			<label  for="pas_important">pas du tout important</label>
+			<input type="radio" id="pas_important" name="inutile">
+			</fieldset>
+			
+			<label for="satisfaction_utilisateur">Avez vous confiance en nous ? </label>
+			<input type="range" id="satisfaction_utilisateur" name="confiance" min="1" max="100" required/>
+			
+			<label for="message">Un message personelle ?</label>
+            <select id="message" name="message_utilisateur">
+                <option value="Super">Super</option>
+                <option value="Merci">Merci</option>
+                <option value="Bravo">Bravo</option>
+
+            </select>
+			
+			<input type="hidden" id="le_connais_on" name="je_te_connais" value="ton_numero_est_24254"/>
+			
+			<input type="submit" value="envoyer"/>
+			
+			<input type="reset" value="réinitialser" />
+
+            
+			</article>
+           
+         </section>
+        
+      </main>
+		
+		
+		
+		
+		
+		<footer>
+			<p>
+				All rights reserved to Metatron, the scribe
+			</p>
+			<address>
+				<p>
+					13 avenue des sciences
+				</p>
+				<a href="https://www.iut-orsay.universite-paris-saclay.fr/">Site web</a>
+			</address>
+		</footer>
+	</body>
+</html>

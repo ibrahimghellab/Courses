@@ -1,0 +1,36 @@
+/* ----------------------- css de la navigation --------------------- */
+/* desactiver celui de index.css */
+/* attention a inclure ce css dans tableau et formulaire */
+
+/* 3.b */
+nav a{
+	/* display : inline-block; */
+	/* width : 22%; */
+	text-decoration : none;
+	min-width : 18rem;
+	text-align : center;
+	background-color : #aaa;
+	border-radius : 1rem;
+	color : white;
+	font-weight : bold;
+	font-size : 1.6rem;
+}
+nav a.ici{
+	color : black;
+}
+nav a:hover{
+	box-shadow: 2px 2px 10px black;
+}
+
+
+nav{
+	/* 3.c */
+	display : flex;
+	/* 3.d */
+	justify-content: space-around;
+	/* 3.e */
+	flex-wrap: wrap; 
+	gap: 10px;
+	/* 3.f */
+	margin : 1rem;
+}

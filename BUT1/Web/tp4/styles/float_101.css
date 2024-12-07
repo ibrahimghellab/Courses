@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+main section h1 {
+	margin-left:30px;
+	font-size:50px;
+	text-decoration:underline;
+	border-bottom:5px solid GoldenRod;
+	
+}
+
+main section h1 img {
+	border:5px solid GoldenRod;
+	float:left;
+	
+}
+
+main section article h2 {
+	font-size:30px;
+	text-decoration:underline;
+	border-bottom:3px solid DarkGoldenRod;
+	overflow:hidden;
+}
+main section article h2 img {
+	border:5px solid DarkGoldenRod;
+	float:right;
+}

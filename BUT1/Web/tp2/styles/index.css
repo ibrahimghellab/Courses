@@ -1,0 +1,43 @@
+@charset "utf-8";
+* { margin : 0; padding : 0; }
+header{
+	margin: 100px;
+	background-color: blue;
+	text-align: center;
+
+}
+header h1::first-line {
+	font-size:70px;
+}	
+header h2::first-line {
+	font-size:50px;
+}
+aside{
+	border:3px solid black;
+	margin:25px;
+	padding:25px;
+	background-image:url(matrix-4493783_640.jpg);
+	background-repeat: no-repeat;
+	background-size:1000px;
+	font-size:75px;
+	color:yellow;
+	text-shadow: red 1px 0 10px;
+}
+	
+	h1{
+		font-size:50px;text-indent:5%;text-decoration: underline;
+	}
+
+	
+	article{
+		padding-bottom:50px
+	}
+	h2{font-size:40px;text-decoration: underline}
+
+	
+	p{padding-bottom:15px;text-indent:2%}
+	
+
+footer{background-color:darkgreen;text-align:end}
+address{text-align:center}
+footer p {margin:25px ; padding:25px}
