@@ -7,6 +7,7 @@ class controleurUtilisateur extends Controleur{
     protected static $key="login";
     protected static $delete="supprimerObjet&login=";
     protected static $read="lireObjet&login=";
+    protected static $edit="afficherFormulaireModification&login=";
     protected static $link='<a href=routeur.php?controleur=controleurUtilisateur&action=';
     protected static $txt='<br>utilisateur avec comme login ';
     protected static $errorpart1="<p>L'utilisateur avec pour login ";
