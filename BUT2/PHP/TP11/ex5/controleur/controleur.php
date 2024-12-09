@@ -4,6 +4,7 @@ require_once("./modele/modele.php");
 require_once("./modele/Utilisateur.php");
 require_once("./modele/voiture.php");
 
+
 class Controleur{
     public static function lireObjets(){
         $title='Les '.static::$objet.'s';
@@ -11,8 +12,8 @@ class Controleur{
         $ligne=array();
         
         foreach($obj as $cle=>$valeur){
-            array_push($ligne,static::$txt . $valeur->get(static::$key) . static::$link . static::$read. $valeur->get(static::$key).'>détails</a>'.static::$link . static::$delete. $valeur->get(static::$key).'>Delete</a>'.'<a> Modifier </a>);
-        }
+            array_push($ligne,static::$txt . $valeur->get(static::$key) . static::$link . static::$read. $valeur->get(static::$key).'>détails</a>'.static::$link . static::$delete. $valeur->get(static::$key).'>Delete</a>'.static::$link . static::$edit. $valeur->get(static::$key).'> Modifier </a>');
+    }
     
         require_once(__DIR__."/../vue/debut.php");
         require_once(__DIR__."/../vue/menu.html");
