@@ -1,0 +1,28 @@
+package exo3;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class MainBibiotheque {
+
+	public static void main(String[] args) {
+		JFrame fenetre=new JFrame("Bibliothèque");
+
+		PanelButton pb=new PanelButton();
+		PanelInfos pi=new PanelInfos();
+		PanelListesOuvrage pl =new PanelListesOuvrage();
+		
+		JPanel panel=new JPanel();
+		panel.add(pl);
+		panel.add(pb);
+		panel.add(pi);
+		
+		fenetre.add(panel);
+		fenetre.setVisible(true);
+	}
+
+
+
+
+
+}

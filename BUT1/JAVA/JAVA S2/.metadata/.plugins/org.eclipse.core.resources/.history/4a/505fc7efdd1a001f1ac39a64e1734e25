@@ -1,0 +1,27 @@
+package exo7;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class exo1 {
+
+	public static void main(String[] args) {
+		JFrame fenetre=new JFrame("Calcul Périmètre");
+		
+		fenetre.setSize(600,400);
+		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fenetre.setVisible(true);
+		fenetre.setResizable(false);
+		
+		JLabel per=new JLabel("Périmètre");
+		fenetre.add(per);
+		
+		JTextField tper=new JTextField();
+		fenetre.add(tper);
+		
+	}
+
+}

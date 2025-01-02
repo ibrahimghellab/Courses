@@ -1,0 +1,115 @@
+package exo2;
+
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+public class PanelCalculatrice extends JPanel{
+	JLabel resultat;
+	JButton nb0;
+	JButton nb1;
+	JButton nb2;
+	JButton nb3;
+	JButton nb4;
+	JButton nb5;
+	JButton nb6;
+	JButton nb7;
+	JButton nb8;
+	JButton nb9;
+	JButton plus;
+	JButton moins;
+	JButton mult;
+	JButton div;
+	JButton reset;
+	JButton equal;
+	
+	public PanelCalculatrice() {
+		
+		resultat= new JLabel("0");
+		nb0=new JButton("0");
+		nb1=new JButton("1");
+		nb2=new JButton("2");
+		nb3=new JButton("3");
+		nb4=new JButton("4");
+		nb5=new JButton("5");
+		nb6=new JButton("6");
+		nb7=new JButton("7");
+		nb8=new JButton("8");
+		nb9=new JButton("9");
+		plus=new JButton("+");
+		moins=new JButton("-");
+		mult=new JButton("x");
+		div=new JButton("/");
+		reset=new JButton("C/CE");
+		equal=new JButton("=");
+		
+		
+		
+		resultat.setBackground(Color.black);
+		resultat.setOpaque(true);
+		resultat.setForeground(Color.green);
+		resultat.setHorizontalAlignment(JLabel.RIGHT);
+		resultat.setFont(new Font("Courier",Font.BOLD,48));
+		
+		plus.setBorder(BorderFactory.createLineBorder(Color.red));
+		moins.setBorder(BorderFactory.createLineBorder(Color.red));
+		mult.setBorder(BorderFactory.createLineBorder(Color.red));
+		div.setBorder(BorderFactory.createLineBorder(Color.red));
+		reset.setBorder(BorderFactory.createLineBorder(Color.red));
+		
+		
+		nb0.setBorder(BorderFactory.createLineBorder(Color.blue));
+		nb1.setBorder(BorderFactory.createLineBorder(Color.blue));
+		nb2.setBorder(BorderFactory.createLineBorder(Color.blue));
+		nb3.setBorder(BorderFactory.createLineBorder(Color.blue));
+		nb4.setBorder(BorderFactory.createLineBorder(Color.blue));
+		nb5.setBorder(BorderFactory.createLineBorder(Color.blue));
+		nb6.setBorder(BorderFactory.createLineBorder(Color.blue));
+		nb7.setBorder(BorderFactory.createLineBorder(Color.blue));
+		nb8.setBorder(BorderFactory.createLineBorder(Color.blue));
+		nb9.setBorder(BorderFactory.createLineBorder(Color.blue));
+		
+		
+		
+		
+		add(resultat);
+		add(nb1);
+		add(nb2);
+		add(nb3);
+		add(plus);
+		add(nb4);
+		add(nb5);
+		add(nb6);
+		add(moins);
+		add(nb7);
+		add(nb8);
+	    add(nb9);
+	    add(mult);
+	    add(reset);
+	    add(nb0);
+	    add(equal);
+	    add(div);
+	    
+	    
+		
+	}
+	
+	public static void main(String[] args) {
+		JFrame fenetre=new JFrame("Calculatrice");
+		
+		PanelCalculatrice p=new PanelCalculatrice();
+		
+		fenetre.add(p);
+		
+		fenetre.setSize(500,500);
+		
+		fenetre.setVisible(true);
+	}
+	
+}
