@@ -1,0 +1,21 @@
+table,td{
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+    
+}
+thead{
+    background-color: grey;
+    
+}
+th{
+    color: aliceblue;
+    padding: 5px;
+    border: 1px solid black;
+}
+table{
+    margin-left: 20px;
+}
+.red{
+    background-color: red;
+}
