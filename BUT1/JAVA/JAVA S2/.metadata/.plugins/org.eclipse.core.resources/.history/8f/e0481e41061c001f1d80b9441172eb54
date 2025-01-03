@@ -1,7 +1,0 @@
-package exo3;
-
-import javax.swing.JPanel;
-
-public class PanelInfos extends JPanel{
-
-}

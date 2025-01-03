@@ -1,7 +1,0 @@
-package exo2;
-
-import javax.swing.JPanel;
-
-public class PanelCalculatrice extends JPanel{
-	
-}

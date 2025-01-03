@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy package &apos;banqueAL&apos; to &apos;exo5/src&apos;&#x0D;&#x0A;- Original project: &apos;exo4&apos;&#x0D;&#x0A;- Destination element: &apos;exo5/src&apos;&#x0D;&#x0A;- Original element: &apos;exo4/src/banqueAL&apos;" description="Copy package" destination="=exo5/src" element1="/src&lt;banqueAL" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1714131092126" version="1.0"/>
-</session>

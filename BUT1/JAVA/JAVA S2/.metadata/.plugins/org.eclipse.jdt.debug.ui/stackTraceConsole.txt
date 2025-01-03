@@ -1,5 +1,0 @@
-Poulet(float poids, int id){
-			this.poids=poids;
-			this.numIdentification=id;
-			
-	}
