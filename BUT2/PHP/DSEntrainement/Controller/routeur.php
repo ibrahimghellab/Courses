@@ -19,7 +19,6 @@ $action = "getAll";
 if (isset($_GET["controleur"]) && in_array($_GET["controleur"], $tableauControleurs)) {
     $controleur = $_GET["controleur"];
 }
-echo $controleur;
 if (isset($_GET["action"]) && in_array($_GET["action"], get_class_methods($controleur))) {
     $action = $_GET["action"];
 }
