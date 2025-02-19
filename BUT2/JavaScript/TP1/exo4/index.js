@@ -2,6 +2,14 @@
 document.addEventListener('DOMContentLoaded',()=>{
     let table = document.querySelector("table")
     table.addEventListener("click",change_couleur)    
+
+
+    document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, span, td, button, a").forEach(element => {
+        if (element.textContent.trim() !== "") {
+            element.setAttribute("data-text_orig", element.textContent);
+        }
+    })
+
 })
 
 const change_couleur = (e)=>{
@@ -38,7 +46,6 @@ const ajouter_deux_couleurs = ()=>{
 const cherche_dans_paragraphes_de_main =(that)=>{
     let searchBarValue = that.value
 
-    let p = document.querySelector("main").querySelectorAll("p")
     let find=false
     p.forEach(element => {
         if(element.innerText.includes(searchBarValue)){
@@ -54,4 +61,26 @@ const cherche_dans_paragraphes_de_main =(that)=>{
         that.setCustomValidity("Invalid")
     }
 
+}
+
+const cherche_dans_paragraphes_de_main_v2  = (that) => {
+    let searchBarValue = that.value
+
+    let p = document.querySelector("main").querySelectorAll("p")
+    let find=false
+    p.forEach(element => {
+        
+        let originalText = element.dataset.text_orig
+        if(originalText.includes(searchBarValue)){
+             element.innerHTML = originalText.replace(searchBarValue,"<span class='find'>"+searchBarValue+"</span>")
+             find=true
+        }else{
+             element.innerText = element.dataset.text_orig
+        }
+    });
+    if(find){
+        that.setCustomValidity("")
+    }else{
+        that.setCustomValidity("Invalid")
+    }
 }
