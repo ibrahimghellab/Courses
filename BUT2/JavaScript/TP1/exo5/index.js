@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     let filtre_01 = document.getElementById("filtre_01")
 
     cadre_01.addEventListener("mousemove",move_img)
+    cadre_02.addEventListener("mousemove",move_img)
+    cadre_03.addEventListener("mousemove",move_img)
+    filtre_01.addEventListener("mousemove",move_img)
 
     document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, span, td, button, a").forEach(element => {
         if (element.textContent.trim() !== "") {
