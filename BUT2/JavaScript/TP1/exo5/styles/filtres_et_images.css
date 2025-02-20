@@ -1,0 +1,33 @@
+aside{
+    display: flex;
+    justify-content: space-between;
+    background-color: none;
+}
+#cadre_01, #cadre_02, #cadre_03, #filtre_01 {
+    position: relative;
+    top: 1px;
+    left: 1px;
+
+    background-repeat : no-repeat;
+	background-size : cover;
+    margin  : 1rem;
+	padding : 1rem;
+    width: 50px;
+    height: 75px;
+    max-width: 90%;
+	max-height: 15rem; 
+}
+
+#cadre_01{
+    background-image: url("../images/filtres_et_cadres/cadre_01.png");
+}
+#cadre_02{
+    background-image: url("../images/filtres_et_cadres/cadre_02.png");
+}
+#cadre_03{
+    background-image: url("../images/filtres_et_cadres/cadre_03.png");
+}
+#filtre_01{
+    background-image: url("../images/filtres_et_cadres/filtre_01.png");
+}
+
