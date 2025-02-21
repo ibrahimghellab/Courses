@@ -3,16 +3,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     let table = document.querySelector("table")
     table.addEventListener("click",change_couleur)    
 
-    let cadre_01 = document.getElementById("cadre_01")
-    let cadre_02 = document.getElementById("cadre_02")
-    let cadre_03 = document.getElementById("cadre_03")
-    let filtre_01 = document.getElementById("filtre_01")
-
-    cadre_01.addEventListener("mousemove",move_img)
-    cadre_02.addEventListener("mousemove",move_img)
-    cadre_03.addEventListener("mousemove",move_img)
-    filtre_01.addEventListener("mousemove",move_img)
-
     document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, span, td, button, a").forEach(element => {
         if (element.textContent.trim() !== "") {
             element.setAttribute("data-text_orig", element.textContent);
@@ -91,5 +81,16 @@ const cherche_dans_paragraphes_de_main_v2  = (that) => {
         that.setCustomValidity("")
     }else{
         that.setCustomValidity("Invalid")
+    }
+}
+
+const move_img = (e) => {
+    console.log(e)
+    if(e.buttons === 1){
+        currentElement = e.target
+        currentElement.style.left+=e.movementX
+        currentElement.style.top+=e.movementY
+
+
     }
 }

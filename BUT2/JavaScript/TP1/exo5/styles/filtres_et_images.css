@@ -1,7 +1,9 @@
 aside{
     display: flex;
     justify-content: space-between;
-    background-color: none;
+}
+.no-background{
+    background-image: none;
 }
 #cadre_01, #cadre_02, #cadre_03, #filtre_01 {
     position: relative;
