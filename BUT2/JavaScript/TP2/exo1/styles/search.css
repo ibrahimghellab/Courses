@@ -1,0 +1,10 @@
+:valid{
+    border: 5px solid green;
+}
+:invalid{
+    border: 5px solid red;
+}
+
+.find{
+    background-color: lightgray;
+}
