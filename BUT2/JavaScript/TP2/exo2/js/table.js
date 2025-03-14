@@ -35,4 +35,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     aggreg[3].textContent = ((moyennes[5] + moyennes[6])/2).toFixed(2)
     aggreg[4].textContent = ((moyennes[7] + moyennes[8])/2).toFixed(2)
 
+
+
+    let buttons = document.getElementById("buttons");
+    console.log(buttons.children[0])
+    buttons[1].addEventListener("click",table_to_mobile);
+    buttons[1].addEventListener("click",table_to_desktop);
+
 });
